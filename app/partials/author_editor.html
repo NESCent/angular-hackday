@@ -8,13 +8,8 @@
   <span ng-hide="authorForm.$valid">Please enter a first and last name</span>
   <span ng-show="authorForm.$valid">Form is valid</span>
   <div>
-  <ol>
-    <li ng-repeat="eachAuthor in authors">
-    <button ng-click="moveUp($index)">^</button>
-    <button ng-click="moveDown($index)">v</button>
-    <span>{{ eachAuthor.lastName }}, {{ eachAuthor.firstName }}</span>
-    <button ng-click="removeAuthor($index)">x</button>
-    </li>
+  <ol data-drop="true" ng-model="authors" jqyoui-droppable="{multiple:true}">
+    <li ng-repeat="eachAuthor in authors track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="authors" jqyoui-draggable="{index: {{$index}},animate:true}" >{{ eachAuthor.lastName }}, {{ eachAuthor.firstName }}<button ng-click="removeAuthor($index)">x</button></li>
   </ol>
   <div>have {{ authors.length }} authors</div>
 </div>

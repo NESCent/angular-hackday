@@ -6,6 +6,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.filters',
   'myApp.services',
+  'ngDragDrop',
 //   'myApp.directives',
 //   'myApp.controllers'
 ]).
