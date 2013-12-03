@@ -1,0 +1,20 @@
+<form name="authorForm">
+  <label>Authors:</label>
+    <input ng-model="author.lastName" required placeholder="last name"></input>
+    <input ng-model="author.firstName" required placeholder="first name"></input>
+    <button ng-click="addAuthor(author)">Add</button>
+</ng-form>
+<div>
+  <span ng-hide="authorForm.$valid">Please enter a first and last name</span>
+  <span ng-show="authorForm.$valid">Form is valid</span>
+  <div>
+  <ol>
+    <li ng-repeat="eachAuthor in authors">
+    <button ng-click="moveUp($index)">^</button>
+    <button ng-click="moveDown($index)">v</button>
+    <span>{{ eachAuthor.lastName }}, {{ eachAuthor.firstName }}</span>
+    <button ng-click="removeAuthor($index)">x</button>
+    </li>
+  </ol>
+  <div>have {{ authors.length }} authors</div>
+</div>
